@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, ArrowDown, FileSearch } from "lucide-react";
-import { MetricCard } from "@/components/MetricCard";
+import { MetricCard } from "@/components/MetricCard"; // Named import
 
 export default function ConsultarOFX() {
   const [searchTerm, setSearchTerm] = useState("");
