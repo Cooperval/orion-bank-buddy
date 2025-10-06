@@ -14,7 +14,173 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      cash_flow_entries: {
+        Row: {
+          amount: number
+          category: string | null
+          created_at: string | null
+          description: string
+          entry_date: string
+          id: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          category?: string | null
+          created_at?: string | null
+          description: string
+          entry_date: string
+          id?: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          category?: string | null
+          created_at?: string | null
+          description?: string
+          entry_date?: string
+          id?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      ofx_files: {
+        Row: {
+          account_id: string | null
+          bank_name: string | null
+          file_size: number | null
+          filename: string
+          id: string
+          uploaded_at: string | null
+          user_id: string
+        }
+        Insert: {
+          account_id?: string | null
+          bank_name?: string | null
+          file_size?: number | null
+          filename: string
+          id?: string
+          uploaded_at?: string | null
+          user_id: string
+        }
+        Update: {
+          account_id?: string | null
+          bank_name?: string | null
+          file_size?: number | null
+          filename?: string
+          id?: string
+          uploaded_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      ofx_transactions: {
+        Row: {
+          amount: number
+          bank_name: string | null
+          classification: string | null
+          created_at: string | null
+          description: string
+          id: string
+          ofx_file_id: string | null
+          transaction_date: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          bank_name?: string | null
+          classification?: string | null
+          created_at?: string | null
+          description: string
+          id?: string
+          ofx_file_id?: string | null
+          transaction_date: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          bank_name?: string | null
+          classification?: string | null
+          created_at?: string | null
+          description?: string
+          id?: string
+          ofx_file_id?: string | null
+          transaction_date?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ofx_transactions_ofx_file_id_fkey"
+            columns: ["ofx_file_id"]
+            isOneToOne: false
+            referencedRelation: "ofx_files"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email?: string | null
+          id: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      xml_files: {
+        Row: {
+          file_size: number | null
+          filename: string
+          id: string
+          nf_date: string | null
+          nf_number: string | null
+          status: string | null
+          total_value: number | null
+          uploaded_at: string | null
+          user_id: string
+        }
+        Insert: {
+          file_size?: number | null
+          filename: string
+          id?: string
+          nf_date?: string | null
+          nf_number?: string | null
+          status?: string | null
+          total_value?: number | null
+          uploaded_at?: string | null
+          user_id: string
+        }
+        Update: {
+          file_size?: number | null
+          filename?: string
+          id?: string
+          nf_date?: string | null
+          nf_number?: string | null
+          status?: string | null
+          total_value?: number | null
+          uploaded_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

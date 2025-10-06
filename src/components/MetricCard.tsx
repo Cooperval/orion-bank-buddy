@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface MetricCardProps {
   title: string;
   value: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
   variant: "success" | "danger" | "info" | "default";
   trend?: "up" | "down";
 }
@@ -32,7 +32,7 @@ export function MetricCard({ title, value, icon: Icon, variant, trend }: MetricC
             <p className="text-sm font-medium text-muted-foreground">{title}</p>
             <div className="flex items-center gap-2">
               <p className="text-3xl font-bold">{value}</p>
-              {trend && (
+              {trend && Icon && (
                 <Icon
                   className={`h-5 w-5 ${
                     trend === "up" ? "text-success" : "text-danger"
@@ -41,9 +41,11 @@ export function MetricCard({ title, value, icon: Icon, variant, trend }: MetricC
               )}
             </div>
           </div>
-          <div className={`p-3 rounded-xl ${iconVariantStyles[variant]}`}>
-            <Icon className="h-6 w-6" />
-          </div>
+          {Icon && (
+            <div className={`p-3 rounded-xl ${iconVariantStyles[variant]}`}>
+              <Icon className="h-6 w-6" />
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>
