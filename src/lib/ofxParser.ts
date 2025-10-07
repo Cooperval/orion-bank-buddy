@@ -37,8 +37,12 @@ export function parseOFX(content: string): OFXData {
     const typeMatch = txnBlock.match(/<TRNTYPE>([^<\n]+)/);
     const dateMatch = txnBlock.match(/<DTPOSTED>([^<\n]+)/);
     const amountMatch = txnBlock.match(/<TRNAMT>([^<\n]+)/);
-    const descMatch = txnBlock.match(/<MEMO>([^<\n]+)/);
+    const nameMatch = txnBlock.match(/<NAME>([^<\n]+)/);
+    const memoMatch = txnBlock.match(/<MEMO>([^<\n]+)/);
     const fitIdMatch = txnBlock.match(/<FITID>([^<\n]+)/);
+    
+    // Use NAME first, fallback to MEMO
+    const description = nameMatch ? nameMatch[1].trim() : (memoMatch ? memoMatch[1].trim() : 'Sem descrição');
     
     if (dateMatch && amountMatch) {
       const amount = parseFloat(amountMatch[1]);
@@ -53,7 +57,7 @@ export function parseOFX(content: string): OFXData {
       transactions.push({
         date: formattedDate,
         amount: Math.abs(amount),
-        description: descMatch ? descMatch[1].trim() : 'Sem descrição',
+        description,
         type: amount < 0 ? 'DEBIT' : 'CREDIT',
         fitId: fitIdMatch ? fitIdMatch[1].trim() : undefined,
       });
