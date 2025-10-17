@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -117,6 +118,147 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
     --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
     --shadow-card-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+=======
+/* Professional Financial Dashboard Design System */
+
+@layer base {
+  :root {
+    /* Orion — Minimal Fintech Palette (light) */
+    --background: 220 20% 99%;
+    --foreground: 222 26% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 26% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 26% 16%;
+
+    /* Primary: Orion Indigo (calmo e confiável) */
+    --primary: 210 100% 56%;
+    /* ~indigo 600 */
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 100% 65%;
+    --primary-dark: 210 90% 40%;
+
+    /* Neutros para UI interna */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 20% 28%;
+
+    --muted: 220 12% 95%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 220 16% 92%;
+    --accent-foreground: 222 20% 28%;
+
+    /* Códigos de status (saturação moderada) */
+    --success: 152 46% 36%;
+    /* emerald 600-ish */
+    --success-foreground: 0 0% 100%;
+    --success-light: 152 45% 92%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 95%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-light: 0 80% 96%;
+
+    --border: 220 12% 90%;
+    --input: 220 12% 90%;
+    --ring: 210 100% 56%;
+
+    --radius: 0.75rem;
+
+    /* Gradientes suaves (sem “brilho” excessivo) */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 56%), hsl(210 85% 40%));
+    --gradient-success: linear-gradient(135deg, hsl(var(--success)), hsl(152 46% 28%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 20% 98%));
+
+    /* Sombras discretas para manter o minimalismo */
+    --shadow-card: 0 6px 16px -8px hsl(220 10% 20% / 0.15);
+    --shadow-elevated: 0 14px 28px -12px hsl(220 10% 20% / 0.18);
+    --shadow-financial: 0 10px 30px -14px hsl(210 100% 56% / 0.28);
+
+    /* Sidebar “space/Orion” */
+    /* --sidebar-background: 230 28% 7%;
+    --sidebar-foreground: 220 10% 88%;
+    --sidebar-primary: 242 63% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 230 18% 12%;
+    --sidebar-accent-foreground: 220 10% 88%;
+    --sidebar-border: 230 14% 18%;
+    --sidebar-ring: 242 63% 52%; */
+    --sidebar-background: 0 0% 100%;
+    /* branco igual ao card */
+    --sidebar-foreground: 222 26% 16%;
+    /* texto escuro */
+    --sidebar-primary: var(--primary);
+    /* usa seu primary */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 99% 96%;
+    /* cinza clarinho p/ hovers */
+    --sidebar-accent-foreground: 222 26% 16%;
+    --sidebar-border: 220 12% 90%;
+    /* borda leve */
+    --sidebar-ring: var(--ring);
+
+    /* Motion */
+    --transition-smooth: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.48s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    /* Orion — Minimal Fintech Palette (dark) */
+    --background: 230 25% 6%;
+    --foreground: 220 15% 90%;
+
+    --card: 230 22% 8%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 230 22% 8%;
+    --popover-foreground: 220 15% 92%;
+
+    /* Primary mais claro para contraste no dark */
+    --primary: 242 85% 72%;
+    --primary-foreground: 242 45% 18%;
+
+    --secondary: 225 16% 16%;
+    --secondary-foreground: 220 15% 90%;
+
+    --muted: 225 16% 16%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 225 18% 18%;
+    --accent-foreground: 220 15% 90%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 225 16% 18%;
+    --input: 225 16% 18%;
+    --ring: 242 85% 72%;
+
+    /* Sidebar */
+    --sidebar-background: 230 28% 7%;
+    --sidebar-foreground: 220 12% 90%;
+    --sidebar-primary: 242 85% 72%;
+    --sidebar-primary-foreground: 242 45% 18%;
+    --sidebar-accent: 230 18% 12%;
+    --sidebar-accent-foreground: 220 12% 90%;
+    --sidebar-border: 230 14% 18%;
+    --sidebar-ring: 242 85% 72%;
+
+    /* Gradientes para dark mode */
+    --gradient-primary: linear-gradient(135deg, hsl(242 85% 72%), hsl(242 75% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(152 60% 45%), hsl(152 50% 30%));
+    --gradient-card: linear-gradient(135deg, hsl(230 22% 8%), hsl(230 20% 10%));
+
+    /* Sombras ajustadas para dark mode */
+    --shadow-card: 0 6px 16px -8px hsl(0 0% 0% / 0.4);
+    --shadow-elevated: 0 14px 28px -12px hsl(0 0% 0% / 0.5);
+    --shadow-financial: 0 10px 30px -14px hsl(242 85% 72% / 0.3);
+>>>>>>> cdabeeb (Alterações)
   }
 }
 
@@ -128,4 +270,8 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cdabeeb (Alterações)
